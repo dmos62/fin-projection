@@ -1,37 +1,69 @@
-# JupyterLite Demo
+# 💸 Personal finance projection via Monte Carlo simulation
 
-[![lite-badge](https://jupyterlite.rtfd.io/en/latest/_static/badge.svg)](https://jupyterlite.github.io/demo)
+The JupyterLite notebook:
 
-JupyterLite deployed as a static site to GitHub Pages, for demo purposes.
+🔗 https://dmos62.github.io/fin-projection/lab/index.html?path=worth-over-time-brownian.ipynb
 
-## ✨ Try it in your browser ✨
+---------------------------------------
 
-➡️ **https://jupyterlite.github.io/demo**
+## 🛠️ How to use it:
 
-![github-pages](https://user-images.githubusercontent.com/591645/120649478-18258400-c47d-11eb-80e5-185e52ff2702.gif)
+- Open the link above.
 
-## Requirements
+- In the top bar, click "**Run**" → "**Run All Cells**".
 
-JupyterLite is being tested against modern web browsers:
+- Scroll down to the bottom.
 
-- Firefox 90+
-- Chromium 89+
+- Wait ~30–60 seconds the first time (a JupyterLite notebook can be slow to start).
 
-## Deploy your JupyterLite website on GitHub Pages
+- You'll see sliders and a chart. Adjusting the sliders (or the number inputs) will **automatically update** the chart.
 
-Check out the guide on the JupyterLite documentation: https://jupyterlite.readthedocs.io/en/latest/quickstart/deploy.html
+Example screenshot of what it should look like:
 
-## Further Information and Updates
+📷 https://i.imgur.com/sjDgZKz.png
 
-For more info, keep an eye on the JupyterLite documentation:
+-------------------------------
 
-- How-to Guides: https://jupyterlite.readthedocs.io/en/latest/howto/index.html
-- Reference: https://jupyterlite.readthedocs.io/en/latest/reference/index.html
+## 📈 What it does:
 
-This template provides the Pyodide kernel (`jupyterlite-pyodide-kernel`), the JavaScript kernel (`jupyterlite-javascript-kernel`), and the p5 kernel (`jupyterlite-p5-kernel`), along with other
-optional utilities and extensions to make the JupyterLite experience more enjoyable. See the
-[`requirements.txt` file](requirements.txt) for a list of all the dependencies provided.
+- Simulates the **growth of your investments over time**.
+ 
+- Shows **percentile curves** based on Monte Carlo-style simulations:
+ 
+  - **P50** = median outcome (most likely) 
+  - **P5** and **P95** mark the pessimistic and optimistic extremes—only 5% of simulations do worse/better.
 
-For a template based on the Xeus kernel, see the [`jupyterlite/xeus-python-demo` repository](https://github.com/jupyterlite/xeus-python-demo)
+- Lets you adjust:
 
+  - Initial investment
 
+  - Expected return & return volatility
+
+  - Net monthly income (positive or negative)
+ 
+  - Expected inflation & its volatility
+ 
+- Assumes you invest (or withdraw) your **net income monthly**.
+
+- Uses **Geometric Brownian Motion** to run a thousand simulations that are within specified constraints and visualizes the probabilities implied by those simulations.
+
+- The default expected return is **8%**, and volatility is **18%** — roughly in line with historical S&P 500 performance.
+
+- Inflation is by default **3%** expected, **2%** volatility.
+
+-------------------------
+
+## 🧪 An experiment to try:
+
+Set the initial investment to something like **$1 million**, and pretend you have **no income**.
+Then adjust the **net monthly income (negative)** until your portfolio stays roughly flat in the **P50 (median) curve**.
+
+In other words: what monthly withdrawal could you sustain without your portfolio shrinking in the median scenario?
+
+Was it more or less than you expected?
+
+---------------------------------------
+
+## ⚠️ Caveats:
+
+- I don’t have a finance degree — this was just a weekend project and I wouldn't be surprised if the logic is very wrong.
